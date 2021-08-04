@@ -1,14 +1,20 @@
-name: git fetch upstream action
-description: git fetch upstream action
+name: git fetch upstream merge upstream push action
+description: git fetch upstream merge upstream push action
 author: RekGRpth
 inputs:
   branch:
-    description: git fetch branch
+    description: git fetch upstream branch
+  email:
+    description: git merge upstream email
+    default: actions@github.com
+  name:
+    description: git merge upstream name
+    default: git merge upstream
   repository:
-    description: git fetch repository
+    description: git fetch upstream repository
     required: true
   url:
-    description: git fetch url
+    description: git fetch upstream url
     default: https://github.com/
 runs:
   using: composite
@@ -17,4 +23,8 @@ runs:
         set -eux
         INPUTS_BRANCH="${{ inputs.branch }}"
         git remote add --fetch --track "${INPUTS_BRANCH:-${GITHUB_REF##*/}}" upstream "${{ inputs.url }}${{ inputs.repository }}.git"
+        git config --local user.email "${{ inputs.email }}"
+        git config --local user.name "${{ inputs.name }}"
+        git merge --allow-unrelated-histories "upstream/${INPUTS_BRANCH:-${GITHUB_REF##*/}}"
+        git push --progress
       shell: sh

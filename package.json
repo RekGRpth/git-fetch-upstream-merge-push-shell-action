@@ -1,11 +1,11 @@
 {
     "private": true,
-    "name": "git-fetch-upstream-action",
+    "name": "git-fetch-upstream-merge-upstream-push-action",
     "version": "0.0.0-semantically-released",
     "author": {
       "name": "RekGRpth",
       "email": "RekGRpth@gmail.com",
-      "url": "https://github.com/RekGRpth/git-fetch-upstream-action"
+      "url": "https://github.com/RekGRpth/git-fetch-upstream-merge-upstream-push-action"
     },
     "license": "MIT",
     "dependencies": {
