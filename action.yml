@@ -1,0 +1,23 @@
+name: git fetch upstream
+description: git fetch upstream
+author: RekGRpth
+inputs:
+  branch:
+    description: git fetch branch
+  repository:
+    description: git fetch repository
+    required: true
+  url:
+    description: git fetch url
+    default: https://github.com/
+runs:
+  using: composite
+  steps:
+    - run: |
+        set -eux
+        GITHUB_BRANCH="${GITHUB_REF##*/}"
+        INPUTS_BRANCH="${{ inputs.branch }}"
+        INPUTS_REPOSITORY="${{ inputs.repository }}"
+        INPUTS_URL="${{ inputs.url }}"
+        git remote add --fetch --track "${INPUTS_BRANCH:-$GITHUB_BRANCH}" upstream "${INPUTS_URL}${INPUTS_REPOSITORY}.git"
+      shell: sh
