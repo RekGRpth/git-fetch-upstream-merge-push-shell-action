@@ -1,5 +1,5 @@
-name: git fetch upstream
-description: git fetch upstream
+name: git fetch upstream action
+description: git fetch upstream action
 author: RekGRpth
 inputs:
   branch:
@@ -15,9 +15,6 @@ runs:
   steps:
     - run: |
         set -eux
-        GITHUB_BRANCH="${GITHUB_REF##*/}"
         INPUTS_BRANCH="${{ inputs.branch }}"
-        INPUTS_REPOSITORY="${{ inputs.repository }}"
-        INPUTS_URL="${{ inputs.url }}"
-        git remote add --fetch --track "${INPUTS_BRANCH:-${GITHUB_BRANCH}}" upstream "${INPUTS_URL}${INPUTS_REPOSITORY}.git"
+        git remote add --fetch --track "${INPUTS_BRANCH:-${GITHUB_REF##*/}}" upstream "${{ inputs.url }}${{ inputs.repository }}.git"
       shell: sh
