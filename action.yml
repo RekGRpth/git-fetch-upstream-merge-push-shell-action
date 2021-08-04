@@ -19,5 +19,5 @@ runs:
         INPUTS_BRANCH="${{ inputs.branch }}"
         INPUTS_REPOSITORY="${{ inputs.repository }}"
         INPUTS_URL="${{ inputs.url }}"
-        git remote add --fetch --track "${INPUTS_BRANCH:-$GITHUB_BRANCH}" upstream "${INPUTS_URL}${INPUTS_REPOSITORY}.git"
+        git remote add --fetch --track "${INPUTS_BRANCH:-${GITHUB_BRANCH}}" upstream "${INPUTS_URL}${INPUTS_REPOSITORY}.git"
       shell: sh
