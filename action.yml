@@ -22,9 +22,9 @@ runs:
     - run: |
         set -eux
         INPUTS_BRANCH="${{ inputs.branch }}"
-        git remote add --fetch --track "${INPUTS_BRANCH:-${GITHUB_REF##*/}}" upstream "${{ inputs.url }}${{ inputs.repository }}.git"
-        git config --local user.email "${{ inputs.email }}"
-        git config --local user.name "${{ inputs.name }}"
-        git merge --allow-unrelated-histories "upstream/${INPUTS_BRANCH:-${GITHUB_REF##*/}}"
-        git push --progress --set-upstream origin "${INPUTS_BRANCH:-${GITHUB_REF##*/}}"
+        INPUTS_EMAIL="${{ inputs.email }}"
+        INPUTS_NAME="${{ inputs.name }}"
+        INPUTS_REPOSITORY="${{ inputs.repository }}"
+        INPUTS_URL="${{ inputs.url }}"
+        "${GITHUB_ACTION_PATH}/action.sh"
       shell: sh
