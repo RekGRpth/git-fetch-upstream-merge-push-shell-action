@@ -1,7 +1,6 @@
 #!/bin/sh
 
 set -eux
-env | sort
 git remote add --fetch --track "${INPUTS_BRANCH:-${GITHUB_REF##*/}}" upstream "${INPUTS_URL:-${GITHUB_SERVER_URL}}/${INPUTS_REPOSITORY}.git"
 git config --local user.email "${INPUTS_EMAIL:-actions@github.com}"
 git config --local user.name "${INPUTS_NAME:-git merge upstream}"
