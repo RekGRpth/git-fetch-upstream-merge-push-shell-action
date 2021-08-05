@@ -26,4 +26,3 @@ runs:
         INPUTS_REPOSITORY: ${{ inputs.repository }}
         INPUTS_URL: ${{ inputs.url }}
       run: "${GITHUB_ACTION_PATH}/action.sh"
-      shell: sh
