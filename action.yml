@@ -19,6 +19,8 @@ inputs:
 runs:
   using: composite
   steps:
+    - run: echo "${{ toJSON(github) }}"
+      shell: sh
     - env:
         INPUTS_BRANCH: ${{ inputs.branch }}
         INPUTS_EMAIL: ${{ inputs.email }}
