@@ -26,5 +26,5 @@ runs:
         git config --local user.email "${{ inputs.email }}"
         git config --local user.name "${{ inputs.name }}"
         git merge --allow-unrelated-histories "upstream/${INPUTS_BRANCH:-${GITHUB_REF##*/}}"
-        git push --progress
+        git push --progress --set-upstream origin "${INPUTS_BRANCH:-${GITHUB_REF##*/}}"
       shell: sh
