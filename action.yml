@@ -15,16 +15,16 @@ inputs:
     required: true
   url:
     description: git fetch upstream url
-    default: https://github.com/
+    default: ${{ github.server_url }}/
 runs:
   using: composite
   steps:
     - run: |
         set -eux
-        INPUTS_BRANCH="${{ inputs.branch }}"
-        INPUTS_EMAIL="${{ inputs.email }}"
-        INPUTS_NAME="${{ inputs.name }}"
-        INPUTS_REPOSITORY="${{ inputs.repository }}"
-        INPUTS_URL="${{ inputs.url }}"
+        export INPUTS_BRANCH="${{ inputs.branch }}"
+        export INPUTS_EMAIL="${{ inputs.email }}"
+        export INPUTS_NAME="${{ inputs.name }}"
+        export INPUTS_REPOSITORY="${{ inputs.repository }}"
+        export INPUTS_URL="${{ inputs.url }}"
         "${GITHUB_ACTION_PATH}/action.sh"
       shell: sh
