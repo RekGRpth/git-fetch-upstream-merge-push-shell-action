@@ -1,31 +1,10 @@
 name: git fetch upstream merge upstream push action
 description: git fetch upstream merge upstream push action
 author: RekGRpth
-inputs:
-  branch:
-    description: git fetch upstream branch
-  email:
-    description: git merge upstream email
-    default: actions@github.com
-  name:
-    description: git merge upstream name
-    default: git merge upstream
-  repository:
-    description: git fetch upstream repository
-    required: true
-  url:
-    description: git fetch upstream url
-    default: ${{ github.server_url }}/
 runs:
   using: composite
   steps:
     - run: echo "${{ toJSON(github) }}"
       shell: sh
-    - env:
-        INPUTS_BRANCH: ${{ inputs.branch }}
-        INPUTS_EMAIL: ${{ inputs.email }}
-        INPUTS_NAME: ${{ inputs.name }}
-        INPUTS_REPOSITORY: ${{ inputs.repository }}
-        INPUTS_URL: ${{ inputs.url }}
-      run: "${GITHUB_ACTION_PATH}/action.sh"
+    - run: "${GITHUB_ACTION_PATH}/action.sh"
       shell: sh
