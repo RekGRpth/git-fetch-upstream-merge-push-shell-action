@@ -1,15 +1,12 @@
 # git fetch upstream merge push shell action 
 
-![Repository License](https://img.shields.io/github/license/RekGRpth/git-fetch-upstream-merge-upstream-push-action)
-![Repository Release](https://img.shields.io/github/v/release/RekGRpth/git-fetch-upstream-merge-upstream-push-action)
-
-1) fetch defined upstream of defined repository
-2) merge this upstream to current workflow repository
-3) push current workflow repository
+## 1) fetch defined upstream of defined repository
+## 2) merge this upstream to current workflow repository
+## 3) push current workflow repository
 
 ### usage
 
-```yaml
+```yml
 env:
   GITHUB_TOKEN: ${{ github.token }}
 runs-on: ubuntu-latest
