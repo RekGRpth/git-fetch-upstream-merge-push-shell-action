@@ -1,5 +1,5 @@
-name: git fetch upstream merge upstream push action
-description: git fetch upstream merge upstream push action
+name: git fetch upstream merge push shell action 
+description: git fetch upstream merge push shell action 
 author: RekGRpth
 runs:
   using: composite

@@ -1,4 +1,4 @@
-# git fetch upstream merge upstream push action
+# git fetch upstream merge push shell action 
 
 ![Repository License](https://img.shields.io/github/license/RekGRpth/git-fetch-upstream-merge-upstream-push-action)
 ![Repository Release](https://img.shields.io/github/v/release/RekGRpth/git-fetch-upstream-merge-upstream-push-action)
@@ -10,7 +10,7 @@
 ### usage
 
 ```yaml
-- uses: rekgrpth/git-fetch-upstream-merge-upstream-push-action@v1
+- uses: rekgrpth/git-fetch-upstream-merge-push-shell-action@v1
   with:
     branch: master # branch to fetch, default: current workflow branch (usually it is repository default branch (usually it is master))
     email: actions@github.com # user.email to merge, default: actions@github.com
