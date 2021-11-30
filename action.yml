@@ -5,4 +5,4 @@ runs:
   using: composite
   steps:
     - run: "${GITHUB_ACTION_PATH}/action.sh"
-      shell: sh
+      shell: bash
