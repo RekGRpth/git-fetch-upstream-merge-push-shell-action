@@ -7,6 +7,8 @@ git config --local user.name "${INPUTS_NAME:-git merge upstream}"
 git merge --allow-unrelated-histories "upstream/${INPUTS_BRANCH:-${GITHUB_REF##*/}}"
 DIFF=$(($(($(date +%s)-$(git --no-pager log -1 --format=%ct)))/86400))
 if [ $DIFF -ge 50 ]; then
+    date +'%s' >.keepalive
+    git add .keepalive
     git commit --allow-empty --message keepalive
 fi
 git push --progress
